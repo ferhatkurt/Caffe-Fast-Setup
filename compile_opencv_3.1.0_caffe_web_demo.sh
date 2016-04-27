@@ -45,7 +45,9 @@ library_dirs = /opt/OpenBLAS/lib
 include_dirs = /opt/OpenBLAS/include
 runtime_library_dirs = /opt/OpenBLAS/lib" >> site.cfg
 # ImportError: No module named setuptools
-sudo apt-get install python-setuptools 
+sudo apt-get install -y python-setuptools 
+sudo apt-get install -y python-pip git
+sudo pip install cython
 python setup.py build --fcompiler=gnu95
 python setup.py install
 #numpy
@@ -83,7 +85,7 @@ sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-d
 sudo apt-get install -y --no-install-recommends libboost-all-dev
 sudo apt-get install -y libatlas-base-dev 
 #sudo apt-get install -y python-dev 
-sudo apt-get install -y python-pip git
+#sudo apt-get install -y python-pip git
 
 # For Ubuntu 14.04
 sudo apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler 
