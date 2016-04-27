@@ -14,11 +14,11 @@ sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -q -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" # If you are OK with all defaults
 
 #OpenCV
-sudo apt-get install build-essential cmake git pkg-config
-sudo apt-get install libjpeg8-dev libtiff4-dev libjasper-dev libpng12-dev
-sudo apt-get install libgtk2.0-dev
-sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
-sudo apt-get install git python2.7-dev gfortran
+sudo apt-get install -y build-essential cmake git pkg-config
+sudo apt-get install -y libjpeg8-dev libtiff4-dev libjasper-dev libpng12-dev
+sudo apt-get install -y libgtk2.0-dev
+sudo apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+sudo apt-get install -y git python2.7-dev gfortran
 #OpenCv
 
 #OpenBlas
@@ -163,7 +163,7 @@ sudo ldconfig
 
 
 # Caffe Web_demo and NGINX
-sudo apt-get install nginx
+sudo apt-get -y install nginx
 sudo /etc/init.d/nginx start
 sudo rm /etc/nginx/sites-enabled/default
 sudo touch /etc/nginx/sites-available/web_demo
