@@ -44,6 +44,8 @@ libraries = openblas
 library_dirs = /opt/OpenBLAS/lib
 include_dirs = /opt/OpenBLAS/include
 runtime_library_dirs = /opt/OpenBLAS/lib" >> site.cfg
+# ImportError: No module named setuptools
+sudo apt-get install python-setuptools 
 python setup.py build --fcompiler=gnu95
 python setup.py install
 #numpy
@@ -165,7 +167,7 @@ sudo pip install -r examples/web_demo/requirements.txt
 
 # NGINX
 sudo apt-get install nginx
-#sudo /etc/init.d/nginx start
+sudo /etc/init.d/nginx start
 sudo rm /etc/nginx/sites-enabled/default
 sudo touch /etc/nginx/sites-available/web_demo
 sudo ln -s /etc/nginx/sites-available/web_demo /etc/nginx/sites-enabled/web_demo
