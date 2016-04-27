@@ -28,7 +28,7 @@ cd OpenBLAS
 make FC=gfortran USE_OPENMP=1
 sudo make PREFIX=/opt/OpenBLAS install
 #sudo make PREFIX=/usr/local/ install
-echo "export LD_LIBRARY_PATH=/usr/OpenBLAS/lib:$LD_LIBRARY_PATH " >> ~/.bash_profile
+echo "export LD_LIBRARY_PATH=/opt/OpenBLAS/lib:$LD_LIBRARY_PATH " >> ~/.bash_profile
 source ~/.bash_profile
 sudo ldconfig
 #OpenBlas
@@ -156,15 +156,16 @@ source ~/.bash_profile
 sudo ldconfig
 
 # Caffe Web_demo
+sudo pip install -r examples/web_demo/requirements.txt
 # Reference CaffeNet Model and the ImageNet Auxiliary Data
 ./scripts/download_model_binary.py models/bvlc_reference_caffenet
 ./data/ilsvrc12/get_ilsvrc_aux.sh
 #Reference CaffeNet Model and the ImageNet Auxiliary Data
 
 
-# Caffe Web_demo and NGINX
-sudo apt-get -y install nginx
-sudo /etc/init.d/nginx start
+# NGINX
+sudo apt-get install nginx
+#sudo /etc/init.d/nginx start
 sudo rm /etc/nginx/sites-enabled/default
 sudo touch /etc/nginx/sites-available/web_demo
 sudo ln -s /etc/nginx/sites-available/web_demo /etc/nginx/sites-enabled/web_demo
@@ -179,6 +180,7 @@ server {
         alias  /home/www/flask_project/static/;
     }
 }" >> /etc/nginx/sites-available/web_demo
+python examples/web_demo/app.py
 sudo /etc/init.d/nginx restart
 # Caffe Web_demo and NGINX
 
