@@ -9,4 +9,4 @@ server {
     location /statical {
         alias  /home/www/flask_project/static/;
     }
-}" >> web_demo
+}" >> /etc/nginx/sites-available/web_demo
