@@ -13,13 +13,13 @@ sudo apt-get update
 #sudo apt-get upgrade -y # If you are OK getting prompted
 sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -q -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" # If you are OK with all defaults
 
-#OpenCV
+#OpenCV 3.1.0 part 1
 sudo apt-get install -y build-essential cmake git pkg-config
 sudo apt-get install -y libjpeg8-dev libtiff4-dev libjasper-dev libpng12-dev
 sudo apt-get install -y libgtk2.0-dev
 sudo apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
 sudo apt-get install -y git python2.7-dev gfortran
-#OpenCv
+#OpenCV 3.1.0 part 1
 
 #OpenBlas
 cd ~
@@ -44,7 +44,7 @@ libraries = openblas
 library_dirs = /opt/OpenBLAS/lib
 include_dirs = /opt/OpenBLAS/include
 runtime_library_dirs = /opt/OpenBLAS/lib" >> site.cfg
-# ImportError: No module named setuptools
+
 sudo apt-get install -y python-setuptools 
 sudo apt-get install -y python-pip git
 sudo pip install cython
@@ -56,7 +56,7 @@ echo "export OMP_NUM_THREADS=$NUMBER_OF_CORES" >> ~/.bash_profile
 source ~/.bash_profile 
 sudo ldconfig
 
-#OpenCV 3.1
+#OpenCV 3.1.0 part 2
 cd ~
 git clone https://github.com/Itseez/opencv.git
 cd opencv
@@ -78,8 +78,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D BUILD_EXAMPLES=ON ..
 make -j$NUMBER_OF_CORES
 sudo make install
-
-#OpenCV 3.1
+#OpenCV 3.1.0 part 2
 
 sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev
 sudo apt-get install -y --no-install-recommends libboost-all-dev
@@ -168,24 +167,25 @@ sudo pip install -r examples/web_demo/requirements.txt
 
 
 # NGINX
-sudo apt-get install nginx
+sudo apt-get install -y nginx
 sudo /etc/init.d/nginx start
 sudo rm /etc/nginx/sites-enabled/default
 sudo touch /etc/nginx/sites-available/web_demo
 sudo ln -s /etc/nginx/sites-available/web_demo /etc/nginx/sites-enabled/web_demo
-echo "
+echo " 
 server {
     location / {
         proxy_pass http://localhost:5000;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
     }
-    location /static {
+    location /armut {
         alias  /home/www/flask_project/static/;
     }
-}" >> /etc/nginx/sites-available/web_demo
-python examples/web_demo/app.py
+}" | sudo tee -a /etc/nginx/sites-available/web_demo
 sudo /etc/init.d/nginx restart
+python examples/web_demo/app.py
+
 # Caffe Web_demo and NGINX
 
 
