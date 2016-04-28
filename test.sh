@@ -1,3 +1,5 @@
+
+cd /etc/nginx/sites-available
 echo "
 server {
     location / {
@@ -8,4 +10,4 @@ server {
     location /statica {
         alias  /home/www/flask_project/static/;
     }
-}" >> /etc/nginx/sites-available/web_demo
+}" >> web_demo
