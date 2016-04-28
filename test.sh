@@ -1,6 +1,5 @@
-
 cd /etc/nginx/sites-available
-sudo echo "
+echo "
 server {
     location / {
         proxy_pass http://localhost:5000;
