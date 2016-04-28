@@ -11,11 +11,11 @@ sudo apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
 sudo apt-get install -y git python2.7-dev gfortran
 #OpenCv
 
-sudo apt-get install libopenblas-dev git
+sudo apt-get install -y libopenblas-dev
 #numpy
 
-sudo apt-get install -y python-setuptools 
-sudo apt-get install -y python-pip git
+#sudo apt-get install -y python-setuptools 
+sudo apt-get install -y python-pip
 sudo pip install numpy
 sudo pip install cython
 
