@@ -1,5 +1,5 @@
 
-cd /etc/nginx/sites-available/
+cd /etc/nginx/sites-available
 sudo echo "
 server {
     location / {
