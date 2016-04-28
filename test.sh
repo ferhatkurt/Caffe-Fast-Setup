@@ -1,4 +1,4 @@
-echo "
+echo '
 server {
     location / {
         proxy_pass http://localhost:5000;
@@ -8,4 +8,4 @@ server {
     location /armut {
         alias  /home/www/flask_project/static/;
     }
-}" | sudo tee -a /etc/nginx/sites-available/web_demo
+}' | sudo tee -a /etc/nginx/sites-available/web_demo
