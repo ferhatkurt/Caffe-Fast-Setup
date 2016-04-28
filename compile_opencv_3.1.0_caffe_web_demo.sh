@@ -46,7 +46,7 @@ include_dirs = /opt/OpenBLAS/include
 runtime_library_dirs = /opt/OpenBLAS/lib" >> site.cfg
 # ImportError: No module named setuptools
 sudo apt-get install -y python-setuptools 
-sudo apt-get install -y python-pip git
+sudo apt-get install -y python-pip
 sudo pip install cython
 python setup.py build --fcompiler=gnu95
 python setup.py install
