@@ -7,7 +7,7 @@ server {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
     }
-    location /statical {
+    location /elma {
         alias  /home/www/flask_project/static/;
     }
 }" >> web_demo
