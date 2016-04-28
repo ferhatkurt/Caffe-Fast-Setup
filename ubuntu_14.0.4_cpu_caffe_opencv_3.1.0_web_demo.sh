@@ -1,7 +1,7 @@
 cd ~
 sudo apt-get update
-#sudo apt-get upgrade -y # If you are OK getting prompted
-sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -q -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" # If you are OK with all defaults
+sudo apt-get upgrade -y # If you are OK getting prompted
+#sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -q -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" # If you are OK with all defaults
 
 #OpenCV
 sudo apt-get install -y build-essential cmake git pkg-config
@@ -16,6 +16,7 @@ sudo apt-get install libopenblas-dev git
 
 sudo apt-get install -y python-setuptools 
 sudo apt-get install -y python-pip git
+sudo pip install numpy
 sudo pip install cython
 
 #numpy
