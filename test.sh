@@ -11,4 +11,4 @@
 #     }
 # }" >> web_demo
 
-echo 'text' | sudo tee -a /etc/nginx/sites-available
+echo 'text' | sudo tee -a /etc/nginx/sites-available/web_demo
