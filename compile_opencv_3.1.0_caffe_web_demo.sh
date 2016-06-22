@@ -2,7 +2,7 @@
 # Usage: 
 # 0. Set up here how many cores you want to use during the installation:
 # By default Caffe will use all these cores.
-NUMBER_OF_CORES=16
+NUMBER_OF_CORES=2
 # 1. Execute this script, e.g. "bash compile_caffe_ubuntu_14.04.sh" (~30 to 60 minutes on a new Ubuntu).
 # 2. Open a new shell (or run "source ~/.bash_profile"). You're done. You can try 
 #    running "import caffe" from the Python interpreter to test.
@@ -28,7 +28,7 @@ cd OpenBLAS
 make FC=gfortran USE_OPENMP=1
 sudo make PREFIX=/opt/OpenBLAS install
 #sudo make PREFIX=/usr/local/ install
-echo "export LD_LIBRARY_PATH=/opt/OpenBLAS/lib:$LD_LIBRARY_PATH " >> ~/.bash_profile
+echo "export LD_LIBRARY_PATH=/opt/OpenBLAS/lib:$LD_LIBRARY_PATH " >> ~/.bashrc
 source ~/.bash_profile
 sudo ldconfig
 #OpenBlas
@@ -52,8 +52,8 @@ python setup.py build --fcompiler=gnu95
 python setup.py install
 #numpy
 
-echo "export OMP_NUM_THREADS=$NUMBER_OF_CORES" >> ~/.bash_profile 
-source ~/.bash_profile 
+echo "export OMP_NUM_THREADS=$NUMBER_OF_CORES" >> ~/.bashrc 
+source ~/.bashrc 
 sudo ldconfig
 
 #OpenCV 3.1
@@ -124,8 +124,8 @@ cd caffe
 cd python
 sed -i 's/numpy/#numpy/' requirements.txt #already install numpy
 for req in $(cat requirements.txt); do sudo pip install $req; done
-echo "export PYTHONPATH=$(pwd):$PYTHONPATH " >> ~/.bash_profile # to be able to call "import caffe" from Python after reboot
-source ~/.bash_profile # Update shell 
+echo "export PYTHONPATH=$(pwd):$PYTHONPATH " >> ~/.bashrc # to be able to call "import caffe" from Python after reboot
+source ~/.bashrc # Update shell 
 cd ..
 
 # Compile caffe and pycaffe
