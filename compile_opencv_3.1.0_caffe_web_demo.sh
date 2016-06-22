@@ -4,7 +4,7 @@
 # By default Caffe will use all these cores.
 NUMBER_OF_CORES=2
 # 1. Execute this script, e.g. "bash compile_caffe_ubuntu_14.04.sh" (~30 to 60 minutes on a new Ubuntu).
-# 2. Open a new shell (or run "source ~/.bash_profile"). You're done. You can try 
+# 2. Open a new shell (or run "source ~/.bashrc"). You're done. You can try 
 #    running "import caffe" from the Python interpreter to test.
 
 #http://caffe.berkeleyvision.org/install_apt.html : (general install info: http://caffe.berkeleyvision.org/installation.html)
@@ -29,7 +29,7 @@ make FC=gfortran USE_OPENMP=1
 sudo make PREFIX=/opt/OpenBLAS install
 #sudo make PREFIX=/usr/local/ install
 echo "export LD_LIBRARY_PATH=/opt/OpenBLAS/lib:$LD_LIBRARY_PATH " >> ~/.bashrc
-source ~/.bash_profile
+source ~/.bashrc
 sudo ldconfig
 #OpenBlas
 
@@ -156,7 +156,7 @@ sudo pip install pydot
 sudo apt-get install -y graphviz
 sudo pip install scikit-learn
 
-source ~/.bash_profile 
+source ~/.bashrc 
 sudo ldconfig
 
 # Caffe Web_demo
@@ -190,5 +190,5 @@ python examples/web_demo/app.py
 # Caffe Web_demo and NGINX
 
 
-# At the end, you need to run "source ~/.bash_profile" manually or start a new shell to be able to do 'python import caffe', 
+# At the end, you need to run "source ~/.bashrc" manually or start a new shell to be able to do 'python import caffe', 
 # because one cannot source in a bash script. (http://stackoverflow.com/questions/16011245/source-files-in-a-bash-script)
